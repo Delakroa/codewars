@@ -10,8 +10,24 @@ import zipfile
 
 
 def main_zip():
-    file_zip = zipfile.ZipFile("d:/Soft/Торент загрузки/")
-    return file_zip
+    """Архивирование файлов"""
+    path_to_archive = r'test.zip'
+    path = r'd:\Soft\Торент загрузки\"'
+    pattern = r'\babc.*\.mp.$'
+    all_files = []
+    with zipfile.ZipFile(path_to_archive, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
+        for root_path, dirs, files in os.walk(path):
+            for name in files:
+                full_path = os.path.join(root_path, name)
+                if os.path.isfile(full_path) and re.match(pattern, name):
+                    if root_path == path:
+                        zf.write(full_path, name)
+                    else:
+                        res = os.path.split(root_path)[-1]
+                        zf.write(full_path, os.path.join(res, name))
+                    all_files.append(full_path)
+    print(os.path.abspath(path_to_archive))
+    print('\n'.join(all_files))
 
 
 def main_path():
@@ -45,10 +61,6 @@ def path_check():
     """Проверяет есть ли путь на самом деле"""
     print("Проверка пути (True или False?):")
     return print(os.path.exists("d:/Soft/Торент загрузки/WinHex v19.9 Ml_Rus/"))
-
-
-def archive(filename):
-    pass
 
 
 main_path()
