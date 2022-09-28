@@ -1,7 +1,5 @@
 # Напишите функцию, которая вычисляет среднее значение чисел в данном списке.
-
 # Примечание: пустые массивы должны вернуть 0.
-
 # Кусок теста который должен пройти
 
 # def fixed_tests():
@@ -12,11 +10,17 @@
 from statistics import mean
 
 
-def calculates_the_average():
+def calculates_the_average(*args: int):
     """Среднее вычисление массива"""
-    a = (1, 2, 3, 4, 5)
-    average_a = mean(a)
-    return average_a
+    try:
+        average_a = mean([*args])
+
+        return average_a
+
+    except statistics.StatisticsError:
+        return 0
 
 
-print(calculates_the_average())
+print(calculates_the_average(123, 43, 32))
+
+
