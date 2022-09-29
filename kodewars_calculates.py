@@ -29,14 +29,21 @@
 
 # --------------------------------------------------------------------------------------
 
-def find_average(numbers):
-    """Второй вариант расчета среднего значения.
-    Данный код прошел все тесты на codewars"""
-    try:
-        return sum(numbers) / len(numbers)
-    except ZeroDivisionError:
-        return 0
+# def find_average(numbers):
+#     """Второй вариант расчета среднего значения.
+#     Данный код прошел все тесты на codewars"""
+#     try:
+#         return sum(numbers) / len(numbers)
+#     except ZeroDivisionError:
+#         return 0
 
+
+# --------------------------------------------------------------------------------------
+
+# Варианты с codewars:
+
+# def find_average(array):
+#     return sum(array) / len(array) if array else 0
 
 # --------------------------------------------------------------------------------------
 
