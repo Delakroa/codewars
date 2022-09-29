@@ -1,3 +1,4 @@
+# Calculate average
 # Напишите функцию, которая вычисляет среднее значение чисел в данном списке.
 # Примечание: пустые массивы должны вернуть 0.
 # Кусок теста который должен пройти
@@ -6,6 +7,8 @@
 #     @test.it('Basic Test Cases')
 #     def basic_test_cases():
 #         test.assert_equals(find_average([1, 2, 3]), 2)
+
+# --------------------------------------------------------------------------------------
 
 # from statistics import mean
 
@@ -24,17 +27,16 @@
 #
 # print(find_average(123, 43, 32))
 
+# --------------------------------------------------------------------------------------
 
-# Делаем второй вариант
-
-def find_average(number):
-    count = 0
-    for numbers in range(number):
-        count += numbers
-    return count
-
-
-print(find_average([1, 2, 3, 4, 5]))
+def find_average(numbers):
+    """Второй вариант расчета среднего значения.
+    Данный код прошел все тесты на codewars"""
+    try:
+        return sum(numbers) / len(numbers)
+    except ZeroDivisionError:
+        return 0
 
 
+# --------------------------------------------------------------------------------------
 
