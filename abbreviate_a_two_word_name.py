@@ -9,13 +9,9 @@
 # ---------------------------------------------------------------------------------------------------
 
 def abbrev_name(name):
-    abbrev = []
-    for i in name:
-        if i == "S" or i == "H":
-            abbrev.append(i)
-    else:
-        new_abbrev = ".".join(abbrev)
-        return new_abbrev
+    """Мне показалось красивым решением"""
+    return '.'.join([i[0] for i in name.split()]).upper()
 
 
 print(abbrev_name(name="Sam Harris"))
+# print(abbrev_name(name="patrick feeney"))
